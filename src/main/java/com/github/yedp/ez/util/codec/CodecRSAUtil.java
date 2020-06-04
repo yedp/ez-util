@@ -338,10 +338,4 @@ public class CodecRSAUtil {
         Key key = keyMap.get(PUBLIC_KEY);
         return Base64.getEncoder().encodeToString(key.getEncoded());
     }
-
-    public void printNewRsaKey(String appId) {
-        Map map = this.genKeyPair();
-        System.out.println(appId + ".public.key=" + this.getPublicKey(map));
-        System.out.println(appId + ".private.key=" + this.getPrivateKey(map));
-    }
 }
