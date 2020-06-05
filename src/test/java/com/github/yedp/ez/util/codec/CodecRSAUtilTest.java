@@ -3,8 +3,6 @@ package com.github.yedp.ez.util.codec;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
 public class CodecRSAUtilTest {

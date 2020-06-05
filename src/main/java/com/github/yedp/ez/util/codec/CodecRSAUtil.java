@@ -85,13 +85,13 @@ public class CodecRSAUtil {
             signature.update(data);
             return signature.sign();
         } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException("加密算法参数错误！");
+            throw new RuntimeException("NoSuchAlgorithmException");
         } catch (SignatureException e) {
-            throw new RuntimeException("签名异常，请检查秘钥是否正确！");
+            throw new RuntimeException("SignatureException");
         } catch (InvalidKeyException e) {
-            throw new RuntimeException("秘钥无效，请检查秘钥是否正确！");
+            throw new RuntimeException("InvalidKeyException");
         } catch (InvalidKeySpecException e) {
-            throw new RuntimeException("秘钥与期望不一致，请检查秘钥是否正确！");
+            throw new RuntimeException("InvalidKeySpecException");
         }
     }
 
@@ -127,13 +127,13 @@ public class CodecRSAUtil {
             signature.update(data);
             return signature.verify(signatureData);
         } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException("加密算法参数错误！");
+            throw new RuntimeException("NoSuchAlgorithmException");
         } catch (SignatureException e) {
-            throw new RuntimeException("签名异常，请检查秘钥是否正确！");
+            throw new RuntimeException("SignatureException");
         } catch (InvalidKeyException e) {
-            throw new RuntimeException("秘钥无效，请检查秘钥是否正确！");
+            throw new RuntimeException("InvalidKeyException");
         } catch (InvalidKeySpecException e) {
-            throw new RuntimeException("秘钥与期望不一致，请检查秘钥是否正确！");
+            throw new RuntimeException("InvalidKeySpecException");
         }
     }
 
@@ -166,19 +166,19 @@ public class CodecRSAUtil {
             cipher.init(1, publicK);
             return getDoFinalData(data, cipher, MAX_ENCRYPT_BLOCK);
         } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException("加密算法参数错误！");
+            throw new RuntimeException("NoSuchAlgorithmException");
         } catch (InvalidKeyException e) {
-            throw new RuntimeException("秘钥无效，请检查秘钥是否正确！");
+            throw new RuntimeException("InvalidKeyException");
         } catch (InvalidKeySpecException e) {
-            throw new RuntimeException("秘钥与期望不一致，请检查秘钥是否正确！");
+            throw new RuntimeException("InvalidKeySpecException");
         } catch (BadPaddingException e) {
-            throw new RuntimeException(e.getCause());
+            throw new RuntimeException("BadPaddingException");
         } catch (IllegalBlockSizeException e) {
-            throw new RuntimeException("加密块size有问题！");
+            throw new RuntimeException("IllegalBlockSizeException");
         } catch (NoSuchPaddingException e) {
-            throw new RuntimeException(e.getCause());
+            throw new RuntimeException("NoSuchPaddingException");
         } catch (IOException e) {
-            throw new RuntimeException("数据IO问题！");
+            throw new RuntimeException("IOException");
         }
     }
 
@@ -213,19 +213,19 @@ public class CodecRSAUtil {
             cipher.init(2, privateK);
             return getDoFinalData(encryptedData, cipher, MAX_DECRYPT_BLOCK);
         } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException("解密算法参数错误！");
+            throw new RuntimeException("NoSuchAlgorithmException");
         } catch (InvalidKeyException e) {
-            throw new RuntimeException("秘钥无效，请检查秘钥是否正确！");
+            throw new RuntimeException("InvalidKeyException");
         } catch (InvalidKeySpecException e) {
-            throw new RuntimeException("秘钥与期望不一致，请检查秘钥是否正确！");
+            throw new RuntimeException("InvalidKeySpecException");
         } catch (BadPaddingException e) {
-            throw new RuntimeException(e.getCause());
+            throw new RuntimeException("BadPaddingException");
         } catch (IllegalBlockSizeException e) {
-            throw new RuntimeException("解密块size有问题！");
+            throw new RuntimeException("IllegalBlockSizeException");
         } catch (NoSuchPaddingException e) {
-            throw new RuntimeException(e.getCause());
+            throw new RuntimeException("NoSuchPaddingException");
         } catch (IOException e) {
-            throw new RuntimeException("数据IO问题！");
+            throw new RuntimeException("IOException");
         }
     }
 
@@ -264,7 +264,7 @@ public class CodecRSAUtil {
         try {
             return content.getBytes(charset);
         } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("签名过程中出现错误,指定的编码集不对,您目前指定的编码集是:" + charset);
+            throw new RuntimeException("UnsupportedEncodingException:" + charset);
         }
     }
 
@@ -282,7 +282,7 @@ public class CodecRSAUtil {
         try {
             return new String(bytes, charset);
         } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("签名过程中出现错误,指定的编码集不对,您目前指定的编码集是:" + charset);
+            throw new RuntimeException("UnsupportedEncodingException:" + charset);
         }
     }
 
@@ -299,7 +299,7 @@ public class CodecRSAUtil {
         try {
             keyPairGen = KeyPairGenerator.getInstance(KEY_ALGORITHM);
         } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException("加密算法不存在");
+            throw new RuntimeException("NoSuchAlgorithmException");
         }
         keyPairGen.initialize(1024);
         KeyPair keyPair = keyPairGen.generateKeyPair();
