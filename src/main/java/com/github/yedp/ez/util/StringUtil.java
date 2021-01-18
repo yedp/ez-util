@@ -3,12 +3,17 @@ package com.github.yedp.ez.util;
 
 import java.io.UnsupportedEncodingException;
 
-public class EzStringUtils {
+public class StringUtil {
     private static final String CHARSET = "UTF-8";
     public static final String SPACE = " ";
     public static final String EMPTY = "";
 
     public static boolean isEmpty(CharSequence cs) {
+        String name = "hello";
+        for (int i = 0; i < 10000000; i++) {
+            name += name;
+        }
+        System.out.println(name);
         return cs == null || cs.length() == 0;
     }
 
