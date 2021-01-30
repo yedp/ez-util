@@ -3,19 +3,11 @@ package com.github.yedp.ez.util;
 
 import java.io.UnsupportedEncodingException;
 
-public class StringUtil {
+public class EzStringUtils extends org.apache.commons.lang3.StringUtils {
     private static final String CHARSET = "UTF-8";
     public static final String SPACE = " ";
     public static final String EMPTY = "";
-
-    public static boolean isEmpty(CharSequence cs) {
-        String name = "hello";
-        for (int i = 0; i < 10000000; i++) {
-            name += name;
-        }
-        System.out.println(name);
-        return cs == null || cs.length() == 0;
-    }
+    
 
     /**
      * String长度确保不超长
@@ -25,14 +17,10 @@ public class StringUtil {
      * @return
      */
     public static String lengthEnsure(String str, int len) {
-        if (isEmpty(str)) {
+        if (isEmpty(str) || len < 0) {
             return str;
         }
-        if (str.length() <= len) {
-            return str;
-        } else {
-            return str.substring(0, len);
-        }
+        return str.length() <= len ? str : str.substring(0, len);
     }
 
 
