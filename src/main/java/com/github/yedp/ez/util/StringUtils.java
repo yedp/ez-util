@@ -2,7 +2,13 @@ package com.github.yedp.ez.util;
 
 
 import java.io.UnsupportedEncodingException;
-
+/**
+ *
+ *@author  yedp
+ *@date    2021-01-30 17:30:07
+ *@comment 
+ *
+ **/
 public class StringUtils {
     private static final String CHARSET = "UTF-8";
     public static final String SPACE = " ";
