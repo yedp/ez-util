@@ -2,12 +2,11 @@ package com.github.yedp.ez.util;
 
 
 import java.io.UnsupportedEncodingException;
+
 /**
- *
- *@author  yedp
- *@date    2021-01-30 17:30:07
- *@comment 
- *
+ * @author yedp
+ * @date 2021-01-30 17:30:07
+ * @comment
  **/
 public class StringUtils {
     private static final String CHARSET = "UTF-8";
@@ -67,15 +66,29 @@ public class StringUtils {
      * StringUtils.isEmpty("bob")     = false
      * StringUtils.isEmpty("  bob  ") = false
      * </pre>
-     * <p>NOTE: This method changed in Lang version 2.0.
-     * It no longer trims the CharSequence.
-     * That functionality is available in isBlank().</p>
      *
      * @param cs the CharSequence to check, may be null
      * @return {@code true} if the CharSequence is empty or null
      */
     public static boolean isEmpty(final CharSequence cs) {
         return cs == null || cs.length() == 0;
+    }
+
+    /**
+     * <p>Checks if a CharSequence is empty ("") or null.</p>
+     * <pre>
+     * StringUtils.isNotEmpty(null)      = false
+     * StringUtils.isNotEmpty("")        = false
+     * StringUtils.isNotEmpty(" ")       = true
+     * StringUtils.isNotEmpty("bob")     = true
+     * StringUtils.isNotEmpty("  bob  ") = true
+     * </pre>
+     *
+     * @param cs the CharSequence to check, may be null
+     * @return {@code true} if the CharSequence is not empty
+     */
+    public static boolean isNotEmpty(final CharSequence cs) {
+        return !isEmpty(cs);
     }
 
     /**
