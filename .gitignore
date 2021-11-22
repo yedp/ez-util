@@ -1,12 +1,36 @@
-## IDEA
-*.iml
-.idea/
-## Eclipse
-.setting/
-.classpath
-.project
-
+HELP.md
 target/
-build/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
 .settings
-rebel.xml
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+ez-util.iml
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+.mvn/
+mvn*
+### log ###
+.log
