@@ -1,13 +1,10 @@
 package com.github.yedp.ez.util.codec;
 
-import com.github.yedp.ez.util.DateUtil;
-import org.junit.Before;
+import com.github.yedp.ez.util.DateUtils;
 import org.junit.Test;
 
 import java.text.ParseException;
 import java.util.Date;
-import java.util.Map;
-import java.util.Objects;
 
 public class DateUtilTest extends TestBase {
     String date1Str = "2020-05-25 10:53:42";
@@ -20,169 +17,169 @@ public class DateUtilTest extends TestBase {
 
     @Test
     public void format() {
-        assertEquals(date1Str, DateUtil.format(date1));
+        assertEquals(date1Str, DateUtils.format(date1));
     }
 
     @Test
     public void formatWithPattern() {
-        assertEquals(date1YMD, DateUtil.format(date1, DateUtil.PATTERN_YMD));
+        assertEquals(date1YMD, DateUtils.format(date1, DateUtils.PATTERN_YMD));
     }
 
     @Test
     public void formatLongWithPattern() {
-        assertEquals(date1YMD, DateUtil.format(date1Long, DateUtil.PATTERN_YMD));
+        assertEquals(date1YMD, DateUtils.format(date1Long, DateUtils.PATTERN_YMD));
     }
 
     @Test
     public void parse() throws ParseException {
-        assertEquals(date1, DateUtil.parse(date1Str));
+        assertEquals(date1, DateUtils.parse(date1Str));
     }
 
     @Test
     public void parseWithPattern() throws ParseException {
-        assertEquals(date1, DateUtil.parse(date1Str, DateUtil.PATTERN_STANDARD));
+        assertEquals(date1, DateUtils.parse(date1Str, DateUtils.PATTERN_STANDARD));
     }
 
     @Test
     public void getMinute() throws ParseException {
-        assertEquals(53, DateUtil.getMinute(date1));
+        assertEquals(53, DateUtils.getMinute(date1));
     }
 
     @Test
     public void getHour() throws ParseException {
-        assertEquals(10, DateUtil.getHour(date1));
+        assertEquals(10, DateUtils.getHour(date1));
     }
 
     @Test
     public void getDayOfWeek() throws ParseException {
-        assertEquals(1, DateUtil.getDayOfWeek(date1));
+        assertEquals(1, DateUtils.getDayOfWeek(date1));
     }
 
     @Test
     public void getDayOfMonth() throws ParseException {
-        assertEquals(25, DateUtil.getDayOfMonth(date2));
+        assertEquals(25, DateUtils.getDayOfMonth(date2));
     }
 
     @Test
     public void getDayOfYear() throws ParseException {
-        assertEquals(145, DateUtil.getDayOfYear(new Date(1621911222000L)));
+        assertEquals(145, DateUtils.getDayOfYear(new Date(1621911222000L)));
     }
 
     @Test
     public void getWeekOfMonth() throws ParseException {
-        assertEquals(5, DateUtil.getWeekOfMonth(date2));
+        assertEquals(5, DateUtils.getWeekOfMonth(date2));
     }
 
     @Test
     public void getWeekOfYear() throws ParseException {
-        assertEquals(5, DateUtil.getWeekOfYear(date2));
+        assertEquals(5, DateUtils.getWeekOfYear(date2));
     }
 
     @Test
     public void getMonth() throws ParseException {
-        assertEquals(5, DateUtil.getMonth(date1));
+        assertEquals(5, DateUtils.getMonth(date1));
     }
 
     @Test
     public void getYear() throws ParseException {
-        assertEquals(2020, DateUtil.getYear(date1));
+        assertEquals(2020, DateUtils.getYear(date1));
     }
 
     @Test
     public void getCurDay() {
-        assertEquals(DateUtil.format(new Date(), DateUtil.PATTERN_YMD), DateUtil.curDay());
+        assertEquals(DateUtils.format(new Date(), DateUtils.PATTERN_YMD), DateUtils.curDay());
     }
 
     @Test
     public void getYearMonth() {
-        assertEquals(DateUtil.format(new Date(), DateUtil.PATTERN_YM), DateUtil.curYearMonth());
+        assertEquals(DateUtils.format(new Date(), DateUtils.PATTERN_YM), DateUtils.curYearMonth());
     }
 
     @Test
     public void getCurTimeStr() {
-        assertEquals(DateUtil.format(new Date(), DateUtil.PATTERN_STANDARD), DateUtil.curTimeStr());
+        assertEquals(DateUtils.format(new Date(), DateUtils.PATTERN_STANDARD), DateUtils.curTimeStr());
     }
 
     @Test
     public void getFirstDateOfWeek() throws ParseException {
-        assertEquals(DateUtil.parse("2021-01-25",DateUtil.PATTERN_YMD), DateUtil.getFirstDateOfWeek(date2));
+        assertEquals(DateUtils.parse("2021-01-25", DateUtils.PATTERN_YMD), DateUtils.getFirstDateOfWeek(date2));
     }
     @Test
     public void getLastDateOfWeek() throws ParseException {
-        assertEquals(DateUtil.parse("2021-01-31 23:59:59",DateUtil.PATTERN_STANDARD), DateUtil.getLastDateOfWeek(date2));
+        assertEquals(DateUtils.parse("2021-01-31 23:59:59", DateUtils.PATTERN_STANDARD), DateUtils.getLastDateOfWeek(date2));
     }
     @Test
     public void getFirstDateOfMonth() throws ParseException {
-        assertEquals(DateUtil.parse("2021-01-01",DateUtil.PATTERN_YMD), DateUtil.getFirstDateOfMonth(date2));
+        assertEquals(DateUtils.parse("2021-01-01", DateUtils.PATTERN_YMD), DateUtils.getFirstDateOfMonth(date2));
     }
     @Test
     public void getLastDateOfMonth() throws ParseException {
-        assertEquals(DateUtil.parse("2021-01-31 23:59:59",DateUtil.PATTERN_STANDARD), DateUtil.getLastDateOfMonth(date2));
+        assertEquals(DateUtils.parse("2021-01-31 23:59:59", DateUtils.PATTERN_STANDARD), DateUtils.getLastDateOfMonth(date2));
     }
     @Test
     public void getStartDate() throws ParseException {
-        assertEquals(DateUtil.parse("1900-01-01 00:00:00"),DateUtil.getStartDate());
+        assertEquals(DateUtils.parse("1900-01-01 00:00:00"), DateUtils.getStartDate());
     }
     @Test
     public void getEndDate() throws ParseException {
-        assertEquals(DateUtil.parse("2199-01-01 00:00:00"),DateUtil.getEndDate());
+        assertEquals(DateUtils.parse("2199-01-01 00:00:00"), DateUtils.getEndDate());
 
     }
 
     @Test
     public void addSecond() throws ParseException {
-        assertEquals(DateUtil.parse("2021-01-25 10:53:52"),DateUtil.addSecond(date2,10));
+        assertEquals(DateUtils.parse("2021-01-25 10:53:52"), DateUtils.addSecond(date2,10));
 
     }
 
     @Test
     public void addMinute() throws ParseException {
-        assertEquals(DateUtil.parse("2021-01-25 11:03:42"),DateUtil.addMinute(date2,10));
+        assertEquals(DateUtils.parse("2021-01-25 11:03:42"), DateUtils.addMinute(date2,10));
 
     }
 
     @Test
     public void addHour() throws ParseException {
-        assertEquals(DateUtil.parse("2021-01-25 20:53:42"),DateUtil.addHour(date2,10));
+        assertEquals(DateUtils.parse("2021-01-25 20:53:42"), DateUtils.addHour(date2,10));
 
     }
     @Test
     public void addDay() throws ParseException {
-        assertEquals(DateUtil.parse("2021-02-04 10:53:42"),DateUtil.addDay(date2,10));
+        assertEquals(DateUtils.parse("2021-02-04 10:53:42"), DateUtils.addDay(date2,10));
 
     }
     @Test
     public void addWeek() throws ParseException {
-        assertEquals(DateUtil.parse("2021-04-05 10:53:42"),DateUtil.addWeek(date2,10));
+        assertEquals(DateUtils.parse("2021-04-05 10:53:42"), DateUtils.addWeek(date2,10));
     }
     @Test
     public void addMonth() throws ParseException {
-        assertEquals(DateUtil.parse("2021-11-25 10:53:42"),DateUtil.addMonth(date2,10));
+        assertEquals(DateUtils.parse("2021-11-25 10:53:42"), DateUtils.addMonth(date2,10));
     }
 
     @Test
     public void minuteDiff() throws ParseException {
-        assertEquals(10L,DateUtil.minuteDiff(date2,DateUtil.addMinute(date2,10)));
+        assertEquals(10L, DateUtils.minuteDiff(date2, DateUtils.addMinute(date2,10)));
     }
 
 
     @Test
     public void hourDiff() throws ParseException {
-        assertEquals(60L,DateUtil.hourDiff(date2,DateUtil.addHour(date2,60)));
+        assertEquals(60L, DateUtils.hourDiff(date2, DateUtils.addHour(date2,60)));
     }
 
     @Test
     public void dayDiff() throws ParseException {
-        assertEquals(2L,DateUtil.dayDiff(date2,DateUtil.addHour(date2,60)));
+        assertEquals(2L, DateUtils.dayDiff(date2, DateUtils.addHour(date2,60)));
     }
 
     @Test
     public void monthDiff() throws ParseException {
-        assertEquals(60,DateUtil.monthDiff(date2,DateUtil.addMonth(date2,60)));
+        assertEquals(60, DateUtils.monthDiff(date2, DateUtils.addMonth(date2,60)));
     }
 
     @Test
     public void yearDiff() throws ParseException {
-        assertEquals(1,DateUtil.yearDiff(date1,date2));
+        assertEquals(1, DateUtils.yearDiff(date1,date2));
     }
 }

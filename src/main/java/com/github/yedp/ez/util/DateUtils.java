@@ -8,7 +8,7 @@ import java.util.*;
  * @author yedp
  * 日期工具类
  */
-public class DateUtil {
+public class DateUtils {
     public static final String PATTERN_YM = "yyyy-MM";
     public static final String PATTERN_YMD = "yyyy-MM-dd";
     public static final String PATTERN_STANDARD = "yyyy-MM-dd HH:mm:ss";

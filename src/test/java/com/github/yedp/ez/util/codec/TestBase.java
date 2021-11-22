@@ -1,6 +1,6 @@
 package com.github.yedp.ez.util.codec;
 
-import com.github.yedp.ez.util.DateUtil;
+import com.github.yedp.ez.util.DateUtils;
 
 import java.util.Date;
 
@@ -18,6 +18,6 @@ public class TestBase {
     }
 
     public void assertEquals(Date date1, Date date2) {
-        assert date1.equals(date2) : "date1:" + DateUtil.format(date1, DateUtil.PATTERN_MILLIS) + "; date2:" + DateUtil.format(date2, DateUtil.PATTERN_MILLIS);
+        assert date1.equals(date2) : "date1:" + DateUtils.format(date1, DateUtils.PATTERN_MILLIS) + "; date2:" + DateUtils.format(date2, DateUtils.PATTERN_MILLIS);
     }
 }
