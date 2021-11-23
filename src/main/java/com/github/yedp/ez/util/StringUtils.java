@@ -5,8 +5,8 @@ import java.io.UnsupportedEncodingException;
 
 /**
  * @author yedp
- * @date 2021-01-30 17:30:07
- * @comment
+ * date 2021-01-30 17:30:07
+ *
  **/
 public class StringUtils {
     private static final String CHARSET = "UTF-8";
@@ -171,9 +171,9 @@ public class StringUtils {
     /**
      * String长度确保不超长
      *
-     * @param str
-     * @param len
-     * @return
+     * @param str 字符串
+     * @param len 长度
+     * @return 字符串
      */
     public static String lengthEnsure(String str, int len) {
         if (isEmpty(str) || len < 0) {
@@ -183,21 +183,6 @@ public class StringUtils {
     }
 
 
-    /**
-     * 获取前半段，或者前半段指定长度
-     *
-     * @param content
-     * @param maxLength
-     * @return
-     */
-    public static String getPreHalf(String content, int maxLength) {
-        if (isEmpty(content)) {
-            return EMPTY;
-        }
-        String preStr = content.substring(0, (content.length() + 1) / 2);
-
-        return lengthEnsure(preStr, maxLength);
-    }
 
     public static byte[] strToBytes(String data) throws UnsupportedEncodingException {
         return strToBytes(data, CHARSET);

@@ -5,9 +5,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
- *@author  yedp
- *@date    2021-01-30 17:13:09
- *@comment 设置线程名称的ThreadFactory
+ * author  yedp
+ * date    2021-01-30 17:13:09
+ * comment 设置线程名称的ThreadFactory
  *
  **/
 public class NamedThreadFactory implements ThreadFactory {
