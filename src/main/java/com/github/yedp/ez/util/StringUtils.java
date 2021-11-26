@@ -62,6 +62,21 @@ public class StringUtils {
     }
 
     /**
+     * <p>Checks if a CharSequence array has a element is empty ("") or null.</p>
+     *
+     * @param sss the CharSequence to check, may be null
+     * @return {@code true} if the CharSequence is not empty
+     */
+    public static boolean isNotBlankAll(String... sss) {
+        for (String s : sss) {
+            if (s == null || isBlank(s)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * <p>Checks if a CharSequence is empty ("") or null.</p>
      * <pre>
      * StringUtils.isEmpty(null)      = true
@@ -94,6 +109,22 @@ public class StringUtils {
     public static boolean isNotEmpty(final CharSequence cs) {
         return !isEmpty(cs);
     }
+
+    /**
+     * <p>Checks if a CharSequence array has a element is empty ("") or null.</p>
+     *
+     * @param sss the CharSequence to check, may be null
+     * @return {@code true} if the CharSequence is not empty
+     */
+    public static boolean isNotEmptyAll(String... sss) {
+        for (String s : sss) {
+            if (s == null || isEmpty(s)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     /**
      * <p>Compares two CharSequences, returning {@code true} if they represent
