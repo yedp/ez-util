@@ -1,7 +1,6 @@
 package com.github.yedp.ez.util.codec;
 
 import com.github.yedp.ez.util.StringUtils;
-import com.vdurmont.emoji.EmojiParser;
 import org.junit.Test;
 
 public class StringUtilsTest {
