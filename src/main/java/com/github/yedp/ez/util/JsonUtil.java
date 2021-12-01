@@ -35,8 +35,10 @@ public class JsonUtil {
      *
      * @param obj 对象
      * @param <T> 对象
+     * @return 对象字符串
      * @throws JsonProcessingException 异常
      */
+
     public static <T> String toString(T obj) throws JsonProcessingException {
         if (obj == null) {
             return null;
@@ -49,6 +51,7 @@ public class JsonUtil {
      *
      * @param obj 对象
      * @param <T> 对象
+     * @return 对象字符串
      * @throws JsonProcessingException 异常
      */
     public static <T> String toStringPretty(T obj) throws JsonProcessingException {

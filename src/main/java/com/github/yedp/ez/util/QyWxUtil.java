@@ -67,7 +67,7 @@ public class QyWxUtil {
      *
      * @param groupId       群key
      * @param msg           消息
-     * @param mentionedPhoneList @需关注人的手机号码
+     * @param mentionedPhoneList 需关注人的手机号码
      * @return 结果
      * @throws IOException 异常
      */
