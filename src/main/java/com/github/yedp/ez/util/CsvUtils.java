@@ -24,7 +24,6 @@ public class CsvUtils {
      * @param headers  csv列头
      * @param tClass   返回对象的类型
      * @return CSVRecord 列表
-     * @throws BizException 异常
      **/
     public static <T> List<T> readCSV(String filePath, String[] headers, Class<T> tClass) {
         //创建CSVFormat
