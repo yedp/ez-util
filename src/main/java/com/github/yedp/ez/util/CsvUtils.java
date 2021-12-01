@@ -23,11 +23,12 @@ public class CsvUtils {
      * @param filePath 文件路径
      * @param headers  csv列头
      * @param tClass   返回对象的类型
+     * @param <T>      对象
      * @return CSVRecord 列表
      **/
     public static <T> List<T> readCSV(String filePath, String[] headers, Class<T> tClass) {
         //创建CSVFormat
-        CSVFormat format =  CSVFormat.Builder.create().build().builder().setHeader(headers).build();
+        CSVFormat format = CSVFormat.Builder.create().build().builder().setHeader(headers).build();
 
         // 获取对象的PropertyDescriptor
         List<T> tList = new ArrayList<>();
@@ -63,7 +64,8 @@ public class CsvUtils {
      *
      * @param tClass 对象的class
      * @return Map
-     * @throws Exception 异常
+     * @throws IntrospectionException 异常
+     * @throws NoSuchFieldException   异常
      */
     public static Map<String, PropertyDescriptor> getCsvFieldMapPropertyDescriptor(Class tClass) throws IntrospectionException, NoSuchFieldException {
         Map<String, PropertyDescriptor> descriptorMap = new HashMap<>();

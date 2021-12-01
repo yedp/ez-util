@@ -34,7 +34,8 @@ public class JsonUtil {
      * 对象转Json格式字符串
      *
      * @param obj 对象
-     * @return Json格式字符串
+     * @param <T> 对象
+     * @throws JsonProcessingException 异常
      */
     public static <T> String toString(T obj) throws JsonProcessingException {
         if (obj == null) {
@@ -47,7 +48,8 @@ public class JsonUtil {
      * 对象转Json格式字符串(格式化的Json字符串)
      *
      * @param obj 对象
-     * @return 美化的Json格式字符串
+     * @param <T> 对象
+     * @throws JsonProcessingException 异常
      */
     public static <T> String toStringPretty(T obj) throws JsonProcessingException {
         if (obj == null) {
@@ -60,8 +62,10 @@ public class JsonUtil {
      * 字符串转换为自定义对象
      *
      * @param str   要转换的字符串
+     * @param <T>   对象
      * @param clazz 自定义对象的class对象
      * @return 自定义对象
+     * @throws IOException 异常
      */
     public static <T> T readValue(String str, Class<T> clazz) throws IOException {
         if (StringUtils.isEmpty(str) || clazz == null) {
@@ -70,6 +74,15 @@ public class JsonUtil {
         return clazz.equals(String.class) ? (T) str : objectMapper.readValue(str, clazz);
     }
 
+    /**
+     * 字符串转换为自定义对象
+     *
+     * @param str           要转换的字符串
+     * @param typeReference 类型
+     * @param <T>           对象
+     * @return 对象
+     * @throws IOException 异常
+     */
     public static <T> T readValue(String str, TypeReference<T> typeReference) throws IOException {
         if (StringUtils.isEmpty(str) || typeReference == null) {
             return null;
@@ -77,9 +90,18 @@ public class JsonUtil {
         return (T) (typeReference.getType().equals(String.class) ? str : objectMapper.readValue(str, typeReference));
     }
 
+    /**
+     * 字符串转换为自定义对象列表
+     *
+     * @param str             要转换的字符串
+     * @param collectionClazz 集合类型
+     * @param elementClazzes  元素类型
+     * @param <T>             对象
+     * @return 集合对象
+     * @throws IOException 异常
+     */
     public static <T> T readValue(String str, Class<?> collectionClazz, Class<?>... elementClazzes) throws IOException {
         JavaType javaType = objectMapper.getTypeFactory().constructParametricType(collectionClazz, elementClazzes);
         return objectMapper.readValue(str, javaType);
-
     }
 }
